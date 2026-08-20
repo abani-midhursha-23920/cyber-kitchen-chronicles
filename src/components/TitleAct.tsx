@@ -8,8 +8,6 @@ export function TitleAct({ shift }: { shift: Shift }) {
   const tDark = [1, 0.62, 0.2, 0][beat];
   const tKitchen = beat < 1 ? 0 : 0.13;
   const tWash = beat < 1 ? 0 : 1;
-  const tChef = beat < 2 ? 0 : 1;
-  const tProp = beat < 2 ? 0 : 1;
   const tMeta = beat < 2 ? 0 : 1;
   const tTitle = beat < 2 ? 0 : 1;
   const tCta = beat < 3 ? 0 : 1;
@@ -61,43 +59,6 @@ export function TitleAct({ shift }: { shift: Shift }) {
           transition: 'opacity 1.8s ease',
         }}
       />
-      <div
-        className="ck-chef-standing"
-        style={{
-          position: 'absolute',
-          right: '-2vw',
-          bottom: '-3vh',
-          height: 'min(72vh,620px)',
-          opacity: tChef,
-          transform: 'translate3d(calc(var(--mx,0) * -9px),0,0)',
-          transition: 'opacity 1.9s ease,transform .6s cubic-bezier(.2,0,.2,1)',
-          pointerEvents: 'none',
-        }}
-      >
-        <img
-          src="art/chef.png"
-          alt="The Chief Cyber Chef"
-          style={{ height: '100%', width: 'auto', animation: 'ck-riseT 2.1s cubic-bezier(.2,0,.2,1) both' }}
-        />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: '1.5vw',
-          bottom: '3vh',
-          height: 'min(26vh,230px)',
-          opacity: tProp,
-          transform: 'translate3d(calc(var(--mx,0) * 22px),calc(var(--my,0) * 8px),0)',
-          transition: 'opacity 1.6s ease,transform .6s cubic-bezier(.2,0,.2,1)',
-          pointerEvents: 'none',
-        }}
-      >
-        <img
-          src="art/t-risotto.png"
-          alt=""
-          style={{ height: '100%', width: 'auto', animation: 'ck-riseT 1.8s cubic-bezier(.2,0,.2,1) both' }}
-        />
-      </div>
       <div
         style={{
           position: 'absolute',
