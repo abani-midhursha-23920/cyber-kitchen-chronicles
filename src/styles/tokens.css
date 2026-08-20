@@ -1,0 +1,83 @@
+/* Design tokens + motion inventory for THE PASS.
+   Values are lifted from the prototype (The Pass.dc.html) — do not tune. */
+
+:root {
+  --ck-cream: #F1E6D2;
+  --ck-paper: #FCF7EB;
+  --ck-ink: #191411;
+  --ck-ink2: #5E5245;
+  --ck-red: #C1352A;
+  --ck-red-d: #8B1F19;
+  --ck-yellow: #EFB129;
+  --ck-blush: #F5DAD2;
+  --ck-steel: #A2937F;
+  --ck-serif: 'Newsreader', Georgia, serif;
+  --ck-slab: 'Baloo 2', system-ui, sans-serif;
+  --ck-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --ck-fiber:
+    repeating-linear-gradient(0deg, rgba(25,20,17,.021) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(25,20,17,.014) 0 1px, transparent 1px 3px);
+  --ck-paper-grad: linear-gradient(163deg, #FDFAF1 0%, #FBF5E8 44%, #F5EDDC 100%);
+  --ck-paper-lift:
+    0 1px 0 rgba(25,20,17,.05),
+    0 2px 7px rgba(25,20,17,.10),
+    0 34px 64px -20px rgba(25,20,17,.36);
+  --ck-ease: cubic-bezier(.2,0,.2,1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #100C0A;
+  color: var(--ck-ink);
+  font-family: var(--ck-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--ck-red); text-decoration: none; }
+a:hover { color: var(--ck-red-d); }
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+::selection { background: var(--ck-yellow); color: var(--ck-ink); }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: rgba(25,20,17,.22); border-radius: 9px; }
+
+@keyframes ck-steam { 0% { transform: translateY(0) scaleX(1); opacity: 0; } 20% { opacity: .55; } 100% { transform: translateY(-140px) scaleX(1.7); opacity: 0; } }
+@keyframes ck-print { from { transform: translateY(-130%) rotate(-3deg); } to { transform: translateY(0) rotate(var(--r, 0deg)); } }
+@keyframes ck-drop { from { transform: translateY(-42px) rotate(-1.6deg); opacity: 0; } to { transform: translateY(0) rotate(-.35deg); opacity: 1; } }
+@keyframes ck-fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes ck-fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ck-stamp { 0% { transform: scale(2.4) rotate(-20deg); opacity: 0; } 55% { transform: scale(.94) rotate(-7deg); opacity: 1; } 100% { transform: scale(1) rotate(-7deg); opacity: 1; } }
+@keyframes ck-bell { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-13deg); } 40% { transform: rotate(10deg); } 60% { transform: rotate(-6deg); } 80% { transform: rotate(3deg); } }
+@keyframes ck-settle { 0% { transform: translateY(-30px) scaleY(1.18); opacity: 0; } 62% { transform: translateY(0) scaleY(.93); opacity: 1; } 82% { transform: scaleY(1.04); } 100% { transform: none; opacity: 1; } }
+@keyframes ck-flick { 0%, 100% { opacity: .85; } 50% { opacity: .3; } }
+@keyframes ck-slide { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ck-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+@keyframes ck-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes ck-rise { from { transform: translateY(70px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ck-riseT { from { transform: translateY(70px); } to { transform: none; } }
+@keyframes ck-floatT { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+@keyframes ck-shake { 0%, 100% { transform: none; } 15% { transform: translateX(-9px) rotate(-2deg); } 30% { transform: translateX(8px) rotate(2deg); } 45% { transform: translateX(-6px); } 60% { transform: translateX(5px); } 80% { transform: translateX(-2px); } }
+@keyframes ck-sew { 0% { transform: scale(2.2) rotate(16deg); opacity: 0; } 60% { transform: scale(.92) rotate(-4deg); opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes ck-lamp { 0%, 100% { opacity: .5; } 45% { opacity: .34; } 47% { opacity: .6; } }
+@keyframes ck-simmer { 0% { transform: translateY(0) scale(1); opacity: 0; } 25% { opacity: .42; } 100% { transform: translateY(-90px) scale(1.9); opacity: 0; } }
+@keyframes ck-hang { 0% { transform: translateY(-170%); opacity: 0; } 42% { opacity: 1; } 58% { transform: translateY(4px); } 74% { transform: translateY(-5px); } 88% { transform: translateY(2px); } 100% { transform: none; opacity: 1; } }
+@keyframes ck-land { 0% { transform: translateY(-44px) rotate(-1.9deg); opacity: 0; } 58% { transform: translateY(0) rotate(-.35deg); opacity: 1; } 74% { transform: translateY(-5px) rotate(.15deg); } 100% { transform: translateY(0) rotate(-.35deg); opacity: 1; } }
+@keyframes ck-wordin { from { transform: translateY(102%); } to { transform: none; } }
+
+/* Kill animation but keep state changes (stamps, drift typography) — they carry meaning. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .001s !important;
+    animation-iteration-count: 1 !important;
+  }
+}
