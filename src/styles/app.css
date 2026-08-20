@@ -1,0 +1,39 @@
+/* Hover states (the prototype's style-hover attributes) and responsive rules.
+   !important is required because base styles live inline on the elements. */
+
+.hv-cta:hover { transform: translateY(-3px) !important; box-shadow: 0 24px 46px rgba(25,20,17,.38) !important; }
+.hv-docket:hover { transform: translateY(-6px) rotate(0deg) !important; box-shadow: 0 1px 0 rgba(0,0,0,.22), 0 26px 38px -10px rgba(0,0,0,.5) !important; }
+.hv-paper:hover { color: var(--ck-paper) !important; }
+.hv-ink:hover { color: var(--ck-ink) !important; }
+.hv-coat:hover { background: rgba(242,231,213,.2) !important; }
+.hv-menu:hover { background: rgba(242,231,213,.16) !important; }
+.hv-tool:hover { box-shadow: inset 0 0 0 2px var(--ck-red) !important; transform: translateY(-3px) !important; }
+.hv-opt:hover { transform: translateX(8px) !important; box-shadow: inset 0 0 0 2px var(--ck-red-d) !important; }
+.hv-up2:hover { transform: translateY(-2px) !important; }
+.hv-up3:hover { transform: translateY(-3px) !important; }
+.hv-poison:hover { background: rgba(239,177,41,.5) !important; }
+.hv-aiact:hover { transform: translateY(-3px) !important; box-shadow: inset 0 0 0 2px var(--ck-red) !important; }
+.hv-dimbg:hover { background: rgba(242,231,213,.2) !important; }
+
+/* Layout grids that the responsive rules below need to override. */
+.ck-docket-grid { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 26px; align-items: start; }
+.ck-ai-grid { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); align-items: start; }
+.ck-cake-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.05fr); gap: 32px; align-items: start; }
+
+/* Responsive (README): <1100 collapse docket body (art above text, ~200px cap),
+   stack AI and cake grids; <900 standing Chef becomes a corner accent;
+   <700 rail becomes a horizontal snap-scroll list with 140px dockets. */
+@media (max-width: 1100px) {
+  .ck-docket-grid { grid-template-columns: minmax(0,1fr); }
+  .ck-docket-art { order: -1; max-height: 200px !important; }
+  .ck-ai-grid { grid-template-columns: minmax(0,1fr); }
+  .ck-cake-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 900px) {
+  .ck-chef-standing { height: min(34vh,300px) !important; }
+}
+@media (max-width: 700px) {
+  .ck-rail-scroller { scroll-snap-type: x mandatory; }
+  .ck-rail-item { scroll-snap-align: start; }
+  .ck-rail-docket { width: 140px !important; }
+}
